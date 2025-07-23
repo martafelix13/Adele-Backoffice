@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment';
+
 
 export interface Project {
   id: number;
@@ -21,7 +23,7 @@ export class ProjectService {
 
   constructor(private http: HttpClient) { }
 
-  backendUri = 'http://localhost:8081/api'
+  backendUri = environment.backendUrl + '/api';
 
   getProjects(){
     return this.http.get(this.backendUri + '/projects')

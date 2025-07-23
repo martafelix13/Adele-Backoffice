@@ -2,10 +2,9 @@ from flask import Flask, json, request, jsonify
 from flask_cors import CORS
 from pymongo import MongoClient
 from bson import ObjectId
-import os
 from flask import session
 
-from config.config import MONGO_URI, BACKEND_PORT
+from config.settings import * 
 
 from routes.file_handling import file_handling_bp
 from routes.tasks_management import task_management_bp
@@ -15,7 +14,9 @@ from routes.communication import send_simple_message_templates as send_email
 from config.audit_logger import audit_logger
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, supports_credentials=True)
+
+app.secret_key = os.environ.get('SECRET_KEY', 'default-secret-key')
 
 app.register_blueprint(file_handling_bp, url_prefix='/files')
 app.register_blueprint(task_management_bp, url_prefix='/api')
@@ -159,6 +160,7 @@ def delete_pipeline(id):
 
 if __name__ == "__main__":
     audit_logger.info("SERVER_START")
-    app.run(port=BACKEND_PORT, debug=True)
+    app.run(host='0.0.0.0', port=BACKEND_PORT)
+
 
 

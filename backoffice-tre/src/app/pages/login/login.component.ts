@@ -12,12 +12,22 @@ import { CommonModule, registerLocaleData } from '@angular/common';
 })
 export class LoginComponent {
   loginForm: FormGroup;
+  registerForm: FormGroup;
   error: string = '';
+  
+  newAccount: boolean = false;
 
   constructor(private fb: FormBuilder, private auth: AuthService, private router: Router) {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
+    });
+
+    this.registerForm = this.fb.group({
+      name: ['', Validators.required],
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+      role: ['', Validators.required]
     });
   }
 
@@ -25,6 +35,7 @@ export class LoginComponent {
     const { username, password } = this.loginForm.value;
     this.auth.login(username, password).subscribe({
       next: (res) => {
+
         this.router.navigate(['/']);
       },
       error: (err) => {
@@ -33,9 +44,14 @@ export class LoginComponent {
     });
   }
 
+  toggleNewAccount() {
+    this.newAccount = !this.newAccount;
+    this.error = '';
+  }
+
   register() {
-    const { username, password } = this.loginForm.value;
-    this.auth.register(username, password, "ADMIN", "System Administrator").subscribe({
+    const { username, password, role, name } = this.registerForm.value;
+    this.auth.register(username, password, role, name).subscribe({
       next: (res) => {
         this.router.navigate(['/']);
       },

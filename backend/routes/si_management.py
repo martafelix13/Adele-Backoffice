@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify, session
 from minio import Minio
 import requests
-from config.config import *
+from config.settings import * 
 from minio.commonconfig import CopySource
 from routes.tasks_management import updateTaskStatus
 from config.audit_logger import audit_logger

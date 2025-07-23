@@ -4,7 +4,7 @@ load_dotenv()
 
 FUNNEL_URI = os.getenv("FUNNEL_URI")
 MONGO_URI = os.getenv("MONGO_URI")
-BACKEND_PORT = int(os.getenv("BACKEND_PORT", 8081))
+BACKEND_PORT = os.getenv("BACKEND_PORT", 8081)
 
 FRONTEND_URI = os.getenv("FRONTEND_URI")
 

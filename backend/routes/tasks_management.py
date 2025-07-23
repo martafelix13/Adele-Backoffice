@@ -1,6 +1,6 @@
 from flask import Blueprint, request, session
 import requests
-from config.config import *
+from config.settings import * 
 from pymongo import MongoClient
 from config.audit_logger import audit_logger
 

@@ -1,13 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthService } from './auth.service';
+import { environment } from '../../environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class FileManagementService {
 
-  private apiUri = 'http://localhost:8081';
+  private apiUri = environment.backendUrl;
 
   constructor(private http: HttpClient, private authService: AuthService) { }
 

@@ -1,6 +1,8 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
+
 
 export interface LegalDocumentTemplate {
   selected: boolean;
@@ -19,7 +21,7 @@ export interface SignedFile {
 })
 
 export class DocumentWorkflowService {
-  private apiUri = 'http://localhost:8081/files'; // Adjust this base URI as needed
+  private apiUri = environment.backendUrl + '/files'; // Adjust this base URI as needed
 
   constructor(private http: HttpClient) {}
 
