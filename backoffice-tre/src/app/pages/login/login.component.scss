@@ -1,0 +1,45 @@
+.login-container {
+  max-width: 350px;
+  margin: 80px auto;
+  padding: 2rem;
+  background: var(--card-bg);
+  border-radius: 1rem;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+  color: var(--text-main);
+}
+
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--accent);
+}
+
+.form-group label {
+  color: var(--text-muted);
+}
+
+.form-control {
+  background: var(--input-bg);
+  color: var(--text-main);
+  border: 1px solid var(--input-border);
+}
+
+.btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  width: 100%;
+  margin-top: 1rem;
+  &:hover { background: var(--accent-hover); }
+}
+
+.alert-danger {
+  background: #2c1a1a;
+  color: #ffb3b3;
+  border: 1px solid #a94442;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+}
+
