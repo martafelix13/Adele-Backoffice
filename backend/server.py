@@ -16,7 +16,7 @@ from config.audit_logger import audit_logger
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
 
-app.secret_key = os.environ.get('SECRET_KEY', 'default-secret-key')
+app.secret_key = os.environ.get('SESSION_SECRET_KEY', 'default-secret-key')
 
 app.register_blueprint(file_handling_bp, url_prefix='/files')
 app.register_blueprint(task_management_bp, url_prefix='/api')

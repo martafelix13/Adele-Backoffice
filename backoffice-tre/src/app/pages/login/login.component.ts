@@ -14,6 +14,9 @@ export class LoginComponent {
   loginForm: FormGroup;
   registerForm: FormGroup;
   error: string = '';
+
+  showPassword = false;
+  showConfirmPassword = false;
   
   newAccount: boolean = false;
 
@@ -27,6 +30,7 @@ export class LoginComponent {
       name: ['', Validators.required],
       username: ['', Validators.required],
       password: ['', Validators.required],
+      confirmPassword: ['', Validators.required],
       role: ['', Validators.required]
     });
   }

@@ -25,11 +25,30 @@ This project is a containerized full-stack web application built with:
     cd Adele-Backoffice
     ```
 
+
 2. **Build and start all services:**
 
     ```bash
     docker compose up --build
     ```
+
+    > **Note:**
+    > If the build fails for the frontend with an error about the Angular `dist` folder not being created, you should:
+    > 1. Open a terminal and navigate to the `backoffice-tre` or `TRE-BIODATA` folder:
+    >    ```bash
+    >    cd Adele-Backoffice/backoffice-tre
+    >    npm install
+    >    npm run build
+    >    cd ../../
+    >    ```
+    >    ```bash
+    >    cd Adele-Website/TRE-BIODATA
+    >    npm install
+    >    npm run build
+    >    cd ../../
+    >    ```
+    > 2. After a successful build, try running `docker compose up --build` again.
+    > This will ensure the Angular build output exists for the container build process.
 
 3. **Access the app:**
     - Frontend: [http://localhost:4200](http://localhost:4200)
